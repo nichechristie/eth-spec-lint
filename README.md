@@ -1,4 +1,4 @@
-# Awesome Eth Linter
+# Awesome ETH Linter
 
 LLM-powered Ethereum protocol security linter that compares consensus/execution specifications against client implementations, flagging inconsistencies and spec drift.
 
@@ -38,7 +38,7 @@ Set `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` in environment.
 ## GitHub Action
 
 ```yaml
-- uses: nichechristie/eth-spec-lint@main
+- uses: nichechristie/Awesome-ETH-Linter@main
   with:
     config: eth-spec-lint.yml
     mode: pr
