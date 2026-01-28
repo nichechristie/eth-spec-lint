@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eth-spec-lint"
+version = "0.1.0"
+description = "LLM-powered Ethereum protocol security linter"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [{name = "Nichole Christie"}]
+dependencies = [
+    "click>=8.1",
+    "pyyaml>=6.0",
+    "jinja2>=3.1",
+    "anthropic>=0.39",
+    "openai>=1.0",
+    "tree-sitter>=0.23",
+    "tree-sitter-typescript>=0.23",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+
+[project.scripts]
+eth-spec-lint = "eth_spec_lint.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["eth_spec_lint*"]

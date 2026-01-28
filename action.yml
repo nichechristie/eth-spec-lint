@@ -1,0 +1,44 @@
+name: "eth-spec-lint"
+description: "LLM-powered Ethereum spec drift detection"
+branding:
+  icon: "shield"
+  color: "blue"
+
+inputs:
+  config:
+    description: "Path to config YAML file"
+    required: false
+    default: "eth-spec-lint.yml"
+  mode:
+    description: "Scan mode: 'full' or 'pr'"
+    required: false
+    default: "pr"
+  base_ref:
+    description: "Base ref for PR mode diff"
+    required: false
+    default: "origin/main"
+  anthropic_api_key:
+    description: "Anthropic API key"
+    required: false
+  openai_api_key:
+    description: "OpenAI API key"
+    required: false
+
+outputs:
+  findings_count:
+    description: "Number of findings"
+  report_path:
+    description: "Path to generated reports"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    ANTHROPIC_API_KEY: ${{ inputs.anthropic_api_key }}
+    OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+  args:
+    - ${{ inputs.mode }}
+    - --config
+    - ${{ inputs.config }}
+    - --base
+    - ${{ inputs.base_ref }}

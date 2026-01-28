@@ -1,0 +1,42 @@
+You are an Ethereum protocol security auditor. Compare the following Ethereum consensus specification function against its client implementation. Identify any semantic differences that could cause consensus failures.
+
+## Specification Function: `{{ spec_name }}`
+
+```python
+{{ spec_source }}
+```
+
+## Client Implementation: `{{ client_name }}`
+
+```typescript
+{{ client_source }}
+```
+
+## Instructions
+
+Analyze both code snippets and identify any discrepancies. For each finding, classify it into one of these categories:
+
+- **LOGIC_DIVERGENCE**: The implementation does not match the spec logic
+- **MISSING_CHECK**: A validation or boundary check in the spec is absent from the implementation
+- **CONSTANT_MISMATCH**: A constant value differs between spec and implementation
+- **TYPE_MISMATCH**: Types or data structures differ in a meaningful way
+- **OFF_BY_ONE**: An off-by-one error in loop bounds, array indexing, or comparisons
+- **OPTIMIZATION_SAFE**: Implementation differs but is provably equivalent (safe optimization)
+
+Respond with a JSON array of findings. If no issues are found, return an empty array `[]`.
+
+Each finding must have this structure:
+```json
+{
+  "category": "LOGIC_DIVERGENCE",
+  "severity": "error",
+  "summary": "Short description of the issue",
+  "detail": "Detailed explanation of the discrepancy and its potential impact",
+  "confidence": 0.85
+}
+```
+
+Severity levels: "error" (consensus-critical), "warning" (potentially unsafe), "note" (informational).
+Confidence: 0.0 to 1.0 indicating how certain you are this is a real issue.
+
+Only report genuine discrepancies. Do not flag language-level differences (Python vs TypeScript idioms) that do not affect semantics.

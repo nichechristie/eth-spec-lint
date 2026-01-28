@@ -1,0 +1,28 @@
+You are an Ethereum protocol security auditor. Compare this specification type/container against its client implementation.
+
+## Specification Type: `{{ spec_name }}`
+
+```python
+{{ spec_type }}
+```
+
+## Client Type: `{{ client_name }}`
+
+```typescript
+{{ client_type }}
+```
+
+## Instructions
+
+Identify any structural differences (missing fields, type mismatches, field ordering issues for SSZ serialization). Respond with a JSON array. Return `[]` if equivalent.
+
+Each finding:
+```json
+{
+  "category": "TYPE_MISMATCH",
+  "severity": "error",
+  "summary": "Short description",
+  "detail": "Explanation of the type difference and potential impact",
+  "confidence": 0.9
+}
+```

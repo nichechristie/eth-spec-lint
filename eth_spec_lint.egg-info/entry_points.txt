@@ -1,0 +1,2 @@
+[console_scripts]
+eth-spec-lint = eth_spec_lint.cli:main

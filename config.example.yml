@@ -1,0 +1,47 @@
+# eth-spec-lint configuration
+
+spec:
+  # Path to ethereum/consensus-specs repo checkout
+  repo_path: ./consensus-specs
+  # Forks to analyze (in order)
+  forks:
+    - phase0
+    - altair
+    - bellatrix
+    - capella
+    - deneb
+    - electra
+
+client:
+  # Which client to analyze
+  name: lodestar
+  # Path to client repo checkout
+  repo_path: ./lodestar
+  # Glob patterns for source files
+  source_globs:
+    - "packages/beacon-node/src/**/*.ts"
+    - "packages/state-transition/src/**/*.ts"
+
+llm:
+  # "anthropic" or "openai"
+  provider: anthropic
+  model: claude-sonnet-4-20250514
+  # Max concurrent LLM calls
+  concurrency: 4
+  # Temperature for comparison calls
+  temperature: 0.0
+
+cache:
+  # SQLite cache path
+  db_path: .eth-spec-lint-cache.db
+
+mapping:
+  # Optional YAML file with manual spec->client function name overrides
+  overrides_file: null
+
+report:
+  # Output formats: json, markdown, sarif
+  formats:
+    - json
+    - markdown
+  output_dir: ./reports

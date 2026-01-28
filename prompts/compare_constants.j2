@@ -1,0 +1,28 @@
+You are an Ethereum protocol security auditor. Compare these specification constants against their client implementation values.
+
+## Specification Constants
+
+{% for c in spec_constants %}
+- `{{ c.name }}` = `{{ c.value }}`
+{% endfor %}
+
+## Client Constants
+
+{% for c in client_constants %}
+- `{{ c.name }}` = `{{ c.value }}`
+{% endfor %}
+
+## Instructions
+
+Identify any mismatches between spec and client constant values. Respond with a JSON array of findings. If all constants match, return `[]`.
+
+Each finding:
+```json
+{
+  "category": "CONSTANT_MISMATCH",
+  "severity": "error",
+  "summary": "Short description",
+  "detail": "Which constant mismatches and the expected vs actual values",
+  "confidence": 0.95
+}
+```
