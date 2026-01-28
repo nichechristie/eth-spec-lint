@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Awesome Smart Linter",
+  title: "Awesome Eth Linter",
   description:
     "Ethereum specification compliance linter powered by LLM analysis",
 };

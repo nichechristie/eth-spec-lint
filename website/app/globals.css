@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --eth-purple: #7b3fe4;
+  --eth-blue: #1c6ef2;
+}
+
 body {
-  background: #0a0e1a;
+  background: #0a0a1a;
   color: #e2e8f0;
 }
 
@@ -11,9 +16,50 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0e1a;
+  background: #0a0a1a;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
+}
+
+.eth-gradient {
+  background: linear-gradient(135deg, #7b3fe4 0%, #1c6ef2 50%, #00d4aa 100%);
+}
+
+.eth-gradient-text {
+  background: linear-gradient(135deg, #a78bfa, #60a5fa, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eth-glow {
+  box-shadow: 0 0 40px rgba(123, 63, 228, 0.15), 0 0 80px rgba(28, 110, 242, 0.1);
+}
+
+.eth-card-glow:hover {
+  box-shadow: 0 0 30px rgba(123, 63, 228, 0.2), 0 0 60px rgba(28, 110, 242, 0.1);
+  border-color: rgba(123, 63, 228, 0.4);
+}
+
+.eth-diamond {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(123, 63, 228, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 63, 228, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
