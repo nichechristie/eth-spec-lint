@@ -1,4 +1,6 @@
-name: "Awesome ETH Linter"
+- name: Awesome ETH Linter
+  uses: nichechristie/Awesome-ETH-Linter@v1.2
+  name: "Awesome ETH Linter"
 description: "LLM-powered Ethereum spec drift detection"
 branding:
   icon: "shield"
