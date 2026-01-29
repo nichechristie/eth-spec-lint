@@ -1,0 +1,12 @@
+{
+  "name": "awesome-eth-linter-root",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd website && npm run dev",
+    "build": "cd website && npm run build",
+    "start": "cd website && npm run start",
+    "lint": "cd website && npm run lint",
+    "vercel-build": "cd website && npm install && npm run build"
+  }
+}
